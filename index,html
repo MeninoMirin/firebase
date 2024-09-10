@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Redirecionamento</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar {
+            width: 100%;
+            background-color: #1f1f1f;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            padding: 20px;
+            background-color: #282828;
+            flex: 1;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: block;
+            padding: 10px;
+            background-color: #333333;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #444444;
+            color: #00ff00;
+        }
+
+        .geolocation {
+            margin-top: 20px;
+            color: #dddddd;
+        }
+
+        #div_telegram {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            z-index: 5000;
+        }
+
+        #div_telegram img {
+            width: 40px;
+            height: 40px;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                flex-direction: row;
+            }
+
+            .sidebar {
+                width: 280px;
+                height: 100vh;
+                margin-bottom: 0;
+                border-radius: 0 10px 10px 0;
+                position: fixed;
+            }
+
+            .main-content {
+                margin-left: 300px;
+            }
+
+            #div_telegram {
+                margin: 30px;
+                bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Telegram -->
+    <div id="div_telegram">
+        <a href="https://t.me/sonhadorbrasil" target="_blank">
+            <img src="imagens/telegram.png" alt="Telegram">
+            Contato do Telegram
+        </a>
+    </div>
+    <!-- Fim Telegram -->
+
+    <!-- Script para geolocalização -->
+    <script>
+        const apiKey = '8212f55c4f704979b06227266c568d82';
+
+        function mostrarIPs() {
+            fetch('https://api.ipgeolocation.io/ipgeo?apiKey=' + apiKey)
+                .then(response => response.json())
+                .then(data => {
+                    const info = `
+                        IP: ${data.ip}<br>
+                        País: ${data.country_name}<br>
+                        Estado: ${data.state_prov}<br>
+                        Cidade: ${data.city}<br>
+                        Latitude: ${data.latitude}<br>
+                        Longitude: ${data.longitude}<br>
+                    `;
+                    document.getElementById('ips').innerHTML = '<strong>Informações de Geolocalização:</strong><br>' + info;
+                })
+                .catch(error => {
+                    console.error('Erro ao obter geolocalização:', error);
+                });
+        }
+
+        // Mostrar os IPs com geolocalização imediatamente ao carregar a página
+        mostrarIPs();
+
+        // Atualizar a lista de IPs com geolocalização a cada 30 segundos
+        setInterval(mostrarIPs, 30000);
+    </script>
+
+    <div class="sidebar">
+        <h2>Geolocalização dos Visitantes</h2>
+        <p id="ips" class="geolocation"></p>
+    </div>
+
+    <div class="main-content">
+        <h2>Menu de Redirecionamento</h2>
+        <ul>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/Calculosecreto copy 1.html">Novo calculo com senha</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/diferencaminutos.html">Diferença Horário Pelo Tipminer</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/calculadoraganho.html">Cálculo de ganho</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/medias.html">Médias Gráfica</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/previsaorodada2024.html">Previsão Rodadas*novo</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/seriestemporais.html">Previsão gráfico em teste</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/velarosateste.html">Previsão Velas Rosa novo</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/previsaorosa.html">Previsão Velas Rosa</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/velaroxa.html">Cálculo Minutos Velas Roxa</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/antihorario.html">Calculadora Anti Horário segredo</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/sementes.html">Calculadora sementes cliente</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/novacalculadora.html">Calculadora de Minutagem de Horário</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/rodadas.html">Calculadora semente</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/Dashboard.html">Dashboard aposta Ganha</a></li>
+        </ul>
+
+        <h2>Outras ferramentas</h2>
+        <ul>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/lista-antes-rosa.html">Lista Anterior Rosa</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/teste.html">Teste Seu HTML</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/w.html">Mandar Mensagem WhatsApp</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/filme.html">Filme Darly</a></li>
+            <li><a href="https://sonhadorbrasil.free.nf/segredo/dvr.html">DVR</a></li>
+        </ul>
+    </div>
+</body>
+</html>
